@@ -1,3 +1,4 @@
+
 *{
 	padding:0;
 	margin:0;
@@ -72,58 +73,12 @@ nav ul li a{
     color: #1B263B;
 }
 
-@media (max-width: 1600px){
-    .seccion{
-    display: flex;
-    justify-content: baseline;
-    align-items: left;
-    padding-left: 50px;
-    flex-direction: column;
-    height: 600px !important;
-    padding-top: 55px;
-}
-}
-
 .ul1 {
     text-align: center;
     cursor: pointer;
     transition: 300ms;
     
 }
-
-.a:hover{
-    transition: 500ms;
-    transform: scale(1.03);
-    border-radius: 10px;
-    margin: 10px;
-}
-
-.b:hover{
-    transition: 500ms;
-    transform: scale(1.03);
-    border-radius: 10px;
-    margin: 10px;
-}
-.c:hover{
-    transition: 500ms;
-    transform: scale(1.03);
-    border-radius: 10px;
-    margin: 10px;    
-}
-.d:hover{
-    transition: 500ms;
-    transform: scale(1.03);
-    border-radius: 10px;
-    margin: 10px;
-}
-.e:hover{
-    transition: 500ms;
-    transform: scale(1.03);
-    border-radius: 10px;
-    margin: 10px;
-}
-
-
 /* MENU */
 
 .lista {
@@ -181,9 +136,6 @@ nav ul li a{
     color: #334970;
     transform: scale(1.03);
 }
-
-
-
 
 /* CAJA DE INFORMACION */
 
@@ -375,4 +327,114 @@ img{
 h3{
   font-size: 90px;
   -webkit-text-stroke: 1px #ffffff;
+}
+
+@media  (max-width: 550px) {  /*cuando el dispositivo es como máximo de 700px*/
+  
+  input:checked  ~ ul{   /*muestra todas el contenido de todas las etiquetas ul */
+  display:block;
+    }
+
+    input:checked ~ label {   /*muestra todo el contenido de todas las etiquetas label */
+    background: lightgrey; 
+        }
+
+    label:hover{                /*cambia el color de ☰ */
+    background: grey;
+    }
+
+  li{                         /*elimina el margen  de cada botón */
+       margin: 0px;
+       text-align: left;
+   }
+
+   label {                      /* dibuja la etiqueta ☰  con formato botón */
+     box-sizing: border-box;
+     display: block;
+     border: 1px solid black;
+     border-radius: 5px;
+     width: 30px;
+     height: 30px;
+     line-height: 30px;
+     font-weight: bold;
+     text-align: center;
+     user-select: none;
+     background-color: cadetblue;
+
+      }
+    
+
+  ul{                          /*deja de mostrar el bloque contenedor de los botones horizontales */
+     display: none;
+     background-color:white;
+
+    }
+   .contenedorflex{
+      flex-direction: column;
+      justify-content: center;
+   }  
+}
+ul li a{
+  text-decoration: none;
+  color: #e0e1dd;
+}
+ul li a:hover{
+  color: #334970;    
+}
+ul li:hover{
+  background-color: #e0e1dd;
+  color: #334970;
+}
+
+/* Tu código CSS actual */
+
+.hamburguesa {
+display: none;
+flex-direction: column;
+cursor: pointer;
+margin-top: 20px;
+}
+
+.bar {
+background-color: #1B263B;
+height: 5px;
+width: 35px;
+margin: 6px 0;
+transition: 0.4s;
+}
+
+@media only screen and (max-width: 500px) {
+.ul1 {
+    display: none;
+}
+
+.ul1-responsive {
+    display: block;
+    text-align: center;
+}
+
+.hamburguesa {
+    display: flex;
+}
+
+.bar.change:nth-child(1) {
+    transform: rotate(-45deg) translate(-6px, 6px);
+}
+
+.bar.change:nth-child(2) {
+    opacity: 0;
+}
+
+.bar.change:nth-child(3) {
+    transform: rotate(45deg) translate(-8px, -8px);
+}
+
+.ul1-responsive ul {
+    list-style-type: none;
+    margin-top: 20px;
+}
+
+.ul1-responsive li {
+    margin: 10px 0;
+}
 }
