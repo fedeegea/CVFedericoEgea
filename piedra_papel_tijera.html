@@ -6,7 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="estilos.css">
-        <title>Educación</title>
+        <title>Piedra, Papel o Tijeras</title>
+        <style>
+            body {
+                font-family: "Inter-ExtraBold", Helvetica;;
+                text-align: center;
+                color: #334970;
+            }
+    
+            #output {
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+    
+            #userChoice {
+                padding: 5px;
+                font-size: 16px;
+            }
+    
+            #playBtn {
+                padding: 5px 10px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+        </style>
     </head>
 
 <body>
@@ -37,20 +60,43 @@
     </header>
     <!--FIN DE BARRA DE NAVEGACIÓN-->
     <!--INICIO DE CURRICULUM-->
-    <main>
-        <h2 class="main_h1_curriculum">EDUCACIÓN</h2>
-        <div class="main_presentacion">
-            <div class="main_presentacion_caja">
-                <ul>
-                    <li>Título Secundario con bachillerato <br>en Ciencias Sociales</li>
-                    <br>
-                    <li>Ingles Nivel Avanzado (B2)</li>
-                    <br>
-                    <li>Estudiante de Desarrollo de Software</li>
-                </ul>
-                <img class="img" src="img/mortarboard-fill.svg" alt="" />
-            </div>
-        </div>
+    <main><br><br>
+        <h1>Piedra, Papel o Tijeras</h1><br>
+        <p id="output">Elegí Piedra, Papel o Tijeras y haz Click en Jugar</p><br>
+        <select id="userChoice">
+            <option value="piedra">Piedra</option>
+            <option value="papel">Papel</option>
+            <option value="tijeras">Tijeras</option>
+        </select><br><br>
+        <button id="playBtn" onclick="playGame()">Jugar</button>
+
+        <script>
+            function playGame() {
+                // Opciones posibles del juego
+                const choices = ['piedra', 'papel', 'tijeras'];
+    
+                // Obtener la elección del usuario
+                const userChoice = document.getElementById('userChoice').value;
+    
+                // Elegir una opción aleatoria para la computadora
+                const computerChoice = choices[Math.floor(Math.random() * choices.length)];
+    
+                // Determinar el resultado del juego
+                let result;
+                if (userChoice === computerChoice) {
+                    result = '¡Es un empate!';
+                } else if ((userChoice === 'piedra' && computerChoice === 'tijeras') ||
+                           (userChoice === 'papel' && computerChoice === 'piedra') ||
+                           (userChoice === 'tijeras' && computerChoice === 'papel')) {
+                    result = '¡Ganaste!';
+                } else {
+                    result = '¡Perdiste!';
+                }
+    
+                // Mostrar el resultado
+                document.getElementById('output').innerHTML = `Elegiste ${userChoice}. La computadora eligió ${computerChoice}. ${result}`;
+            }
+        </script>
     </main>
 </body>
 <footer>
@@ -75,5 +121,5 @@
         </div>
     </section>
 </footer>
-
 </html>
+
